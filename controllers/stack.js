@@ -3,12 +3,15 @@ const stack = [];
 module.exports.addToStack = async (req, res, next) => {
   if(req.body.value){
     stack.push(req.body.value);
-    res.status(200).send('Successfully added');
+    res.writeHead(200, {"Content-Type": "text/plain"});
+    res.end('Successfully added');
   } else {
-    res.status(502).send('Please add value');
+    res.writeHead(502, {"Content-Type": "text/plain"});
+    res.end('Please add value');
   }
 }
 
 module.exports.getFromStack = async (req, res, next) => {
-  res.status(200).send(stack.pop());
+  res.writeHead(200, {"Content-Type": "text/plain"});
+  res.end(stack.pop());
 }
