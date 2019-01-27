@@ -7,8 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "mocha \"tests/*.js\" --timeout 10000",
+    "testStack": "mocha \"tests/stack.js\" --timeout 2000",
+    "testStore": "mocha \"tests/store.js\" --timeout 7000"
   },
   "repository": {
     "type": "git",
