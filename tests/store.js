@@ -76,7 +76,6 @@ describe('Store tests', () => {
         done();
       });
   });
-
   it('Get deleted key', (done) => {
     chai.request(server)
       .get('/store/get?key=age')
@@ -84,6 +83,36 @@ describe('Store tests', () => {
       .end(function(err, res) {
         expect(res).to.have.status(200);
         res.text.should.be.eql('');
+        done();
+      });
+  });
+  it('Get without required fields', (done) => {
+    chai.request(server)
+      .get('/store/get')
+      .send()
+      .end(function(err, res) {
+        expect(res).to.have.status(502);
+        res.text.should.be.eql('Please add required fields');
+        done();
+      });
+  });
+  it('Set without required fields', (done) => {
+    chai.request(server)
+      .post('/store/add')
+      .send()
+      .end(function(err, res) {
+        expect(res).to.have.status(502);
+        res.text.should.be.eql('Please add required fields');
+        done();
+      });
+  });
+  it('Delete without required fields', (done) => {
+    chai.request(server)
+      .delete('/store/delete')
+      .send()
+      .end(function(err, res) {
+        expect(res).to.have.status(502);
+        res.text.should.be.eql('Please add required fields');
         done();
       });
   });

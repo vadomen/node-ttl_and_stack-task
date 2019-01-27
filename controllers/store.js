@@ -5,22 +5,36 @@ module.exports.addKeyValue = async (req, res, next) => {
   let key = req.body.key;
   let value = req.body.value;
   let ttlTime = req.body.ttl ? req.body.ttl : null;
-
-  ttl.push(key, value, null, ttlTime);
-  res.writeHead(200, {"Content-Type": "text/plain"});
-  res.end('Successfully added');
+  if(key, value){
+    ttl.push(key, value, null, ttlTime);
+    res.writeHead(200, {"Content-Type": "text/plain"});
+    res.end('Successfully added');
+  } else {
+    res.writeHead(502, {"Content-Type": "text/plain"});
+    res.end('Please add required fields');
+  }
 }
 
 module.exports.getKeyValue = async (req, res, next) => {
   let key = req.query.key;
-  let result = ttl.get(key);
-  res.writeHead(200, {"Content-Type": "text/plain"});
-  res.end(result);
+  if(key){
+    let result = ttl.get(key);
+    res.writeHead(200, {"Content-Type": "text/plain"});
+    res.end(result);
+  } else {
+    res.writeHead(502, {"Content-Type": "text/plain"});
+    res.end('Please add required fields');
+  }
 }
 
 module.exports.deleteKeyValue = async (req, res, next) => {
-  let key = req.params.key;
-  ttl.del(key);
-  res.writeHead(200, {"Content-Type": "text/plain"});
-  res.end('Successfully deleted');
+  let key = req.query.key;
+  if(key){
+    ttl.del(key);
+    res.writeHead(200, {"Content-Type": "text/plain"});
+    res.end('Successfully deleted');
+  } else {
+    res.writeHead(502, {"Content-Type": "text/plain"});
+    res.end('Please add required fields');
+  }
 }
