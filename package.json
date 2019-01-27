@@ -1,0 +1,32 @@
+{
+  "name": "ttl_and_stack-task",
+  "version": "1.0.0",
+  "description": "Test task",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DSlike/node-ttl_and_stack-task.git"
+  },
+  "author": "Daniel Votintsev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DSlike/node-ttl_and_stack-task/issues"
+  },
+  "homepage": "https://github.com/DSlike/node-ttl_and_stack-task#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "express": "^4.16.4",
+    "helmet": "^3.15.0",
+    "mocha": "^5.2.0",
+    "node-ttl": "0.0.6"
+  }
+}
