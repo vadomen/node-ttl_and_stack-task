@@ -21,3 +21,4 @@ app.listen(port, function() {
 });
 
 app.use('/stack', stackRoute);
+app.use('/store', storeRoute);
