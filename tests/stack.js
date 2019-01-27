@@ -3,7 +3,7 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 const should = chai.should();
 
-const server = require('../testsServer.js');
+const server = require('../index.js');
 
 chai.use(chaiHttp);
 
