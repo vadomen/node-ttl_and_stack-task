@@ -7,6 +7,6 @@ router.get('/get', storeController.getKeyValue);
 
 router.post('/add', storeController.addKeyValue);
 
-router.delete('/add', storeController.deleteKeyValue);
+router.delete('/delete', storeController.deleteKeyValue);
 
 module.exports = router;
