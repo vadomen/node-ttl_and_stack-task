@@ -47,11 +47,13 @@
  | ttl | Int | TTL time in milliseconds| No |
 
  **/store/get**
+
  | Field | Format | Details | Required |
  | ------ | ------ | ------ | ------ |
  | key | String | TTL key | Yes |
 
  **/store/delete**
+ 
  | Field | Format | Details | Required |
  | ------ | ------ | ------ | ------ |
  | key | String | TTL key | Yes |
